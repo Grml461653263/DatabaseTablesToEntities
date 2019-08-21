@@ -14,7 +14,7 @@ spring.mysql.jdbc-url=jdbc:mysql://127.0.0.1/test?useSSL=false&useUnicode=true&c
 spring.mysql.username=root
 
 
-spring.mysql.password=prism%wm%123
+spring.mysql.password=root
 
 
 spring.mysql.driver-class-name=com.mysql.jdbc.Driver

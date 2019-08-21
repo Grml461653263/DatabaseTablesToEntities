@@ -23,11 +23,15 @@ spring.mysql.driver-class-name=com.mysql.jdbc.Driver
 
 如：
 t_label
+
+
 t_label_group
 
 3.提供web接口调用生成实体
 
 oracle/create 生成oracle表对应实体
+
+
 mysql/create  生成mysql表对应实体
 
 实体生成的路径在src.main.java.com.rain.model这个目录下

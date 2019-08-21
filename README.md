@@ -25,7 +25,12 @@ oracle/create 生成oracle表对应实体
 mysql/create  生成mysql表对应实体
 
 实体生成的路径在src.main.java.com.rain.model这个目录下
-/
-/
-/
+
+
+
+
+
+
+
+
 ！！！！花了一天写的，恳请大佬们指点，要是有其他数据源，希望不吝添加，谢谢！

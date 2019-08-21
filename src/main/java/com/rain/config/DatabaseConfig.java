@@ -10,7 +10,12 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-
+/**
+ * @author Rain
+ * My code is bug-free, how can it be, clearly left several?
+ *
+ * Two data sources, MySQL and oracle, are configured here.
+ */
 @Configuration
 public class DatabaseConfig {
 

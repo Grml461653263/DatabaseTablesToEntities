@@ -13,13 +13,14 @@ import java.io.IOException;
 
 /**
  * @author Rain
- * 创建实体 并写入
+ * Create entities and write entity attributes and get, set methods
  */
 public   class CreatModel {
 
     static Logger logger = LoggerFactory.getLogger(CreatModel.class);
 
 
+    private static String PATH = "src/main/java/com/rain/model";
 
 
     public static void Creat(String name, String str,boolean bl){
@@ -28,23 +29,23 @@ public   class CreatModel {
 
             createJava(name);
             File file = new File("src/main/java/com/rain/model/"+name+".java");
-             System.out.println(file.toString());
+            System.out.println(file.toString());
             if(!file.exists()){
-                File path = new File("src/main/java/com/rain/model");
+                File path = new File(PATH);
                 if(path.exists()){
-                    /*if(bl){
-                        delAllFile("src/main/java/com/rain/model");
-                    }*/
+                    if(bl){
+                        delAllFile(PATH);
+                    }
                 }else {
                     path.mkdirs();
                 }
                 boolean b = file.createNewFile();
 
                 if(!b){
-                    logger.error("创建实体{}失败",name);
+                    logger.error("Failure to create entity {}",name);
                 }
                 if(!file.exists()){
-                    logger.error("创建实体{} 但失败了",name);
+                    logger.error("The created entity {}  could not be found",name);
                 }
             }
             try {
@@ -103,7 +104,7 @@ public   class CreatModel {
             }
             if (temp.isDirectory()) {
                 delAllFile(path + "/" + tempList[i]);//先删除文件夹里面的文件
-                delFolder(path + "/" + tempList[i]);//再删除空文件夹
+                //delFolder(path + "/" + tempList[i]);//再删除空文件夹
                 flag = true;
             }
         }

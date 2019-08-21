@@ -13,6 +13,7 @@ public class JsonUtil {
      * 5  * @return 转换后下划线大写方式命名的字符串
      * 6
      */
+
     public static String underscoreName(String name) {
         StringBuilder result = new StringBuilder();
         if (name != null && name.length() > 0) {
@@ -49,11 +50,54 @@ public class JsonUtil {
             return "";
 
         } else if (!name.contains("_")) {
-            // 不含下划线，仅将首字母小写
-            return name.substring(0, 1).toLowerCase() + name.substring(1);
+            // 不含下划线，仅将字母小写
+            return name.toLowerCase();
 
         }
         // 用下划线将原始字符串分割
+        String camels[] = name.split("_");
+        for (String camel : camels) {
+            // 跳过原始字符串中开头、结尾的下换线或双重下划线
+            if (camel.isEmpty()) {
+                continue;
+
+            }
+            // 处理真正的驼峰片段
+
+            // 首字母大写
+            result.append(camel.substring(0, 1).toUpperCase());
+            result.append(camel.substring(1).toLowerCase());
+
+
+        }
+        return result.toString();
+
+    }
+
+    /**
+     * 实体名称转化
+     * 将下划线大写方式命名的字符串转换为驼峰式。如果转换前的下划线大写方式命名的字符串为空，则返回空字符串。
+     * 例如：HELLO_WORLD->HelloWorld
+     *
+     * @param name 转换前的下划线大写方式命名的字符串
+     * @return 转换后的驼峰式命名的字符串
+     */
+    public static String camelNamePrefix(String name, Integer length) {
+        StringBuilder result = new StringBuilder();
+        // 快速检查
+        if ((name == null || name.isEmpty())) {
+            // 没必要转换
+            return "";
+
+        } else if (!name.contains("_") && length == 0) {
+            // 不含下划线， 将首字母转为大写 其他字母转为小写
+            return name.substring(0, 1).toUpperCase() + name.substring(1).toLowerCase();
+
+        }
+        // 用下划线将原始字符串分割
+        if (length != 0) {
+            name = name.substring(length);
+        }
         String camels[] = name.split("_");
         for (String camel : camels) {
             // 跳过原始字符串中开头、结尾的下换线或双重下划线

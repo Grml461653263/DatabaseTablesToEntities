@@ -7,8 +7,14 @@
 这个是mysql的模板 只需要将自己的配置填充就好
 
 spring.mysql.jdbc-url=jdbc:mysql://127.0.0.1/test?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+
+
 spring.mysql.username=root
+
+
 spring.mysql.password=prism%wm%123
+
+
 spring.mysql.driver-class-name=com.mysql.jdbc.Driver
 
 2.table_name.txt

@@ -22,6 +22,8 @@ spring.mysql.driver-class-name=com.mysql.jdbc.Driver
 在这个文本中配置需要转的表名，每个表明一行
 
 如：
+
+
 t_label
 
 

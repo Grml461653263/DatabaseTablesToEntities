@@ -91,7 +91,7 @@ public class MysqlTableToModel {
                 CreatModel.Creat(name,model, bl.get());
                 bl.set(false);
             });
-
+            logger.info("Database table transformation entity completion....");
 
         }else {
             logger.error("Database connection failed....");

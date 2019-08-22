@@ -2,6 +2,7 @@ package com.rain.config;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -43,5 +44,16 @@ public class DatabaseConfig {
     @Bean(name="oracleJdbcTemplate")
     public JdbcTemplate  oracleJdbcTemplate(@Qualifier("oracleDataSource") DataSource dataSource) {
         return new JdbcTemplate(dataSource);
+    }
+
+    @Value("${database.type}")
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

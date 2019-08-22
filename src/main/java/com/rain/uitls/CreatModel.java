@@ -29,7 +29,7 @@ public   class CreatModel {
 
             createJava(name);
             File file = new File("src/main/java/com/rain/model/"+name+".java");
-            System.out.println(file.toString());
+            //System.out.println(file.toString());
             if(!file.exists()){
                 File path = new File(PATH);
                 if(path.exists()){
@@ -68,7 +68,7 @@ public   class CreatModel {
 
     public static  void createJava(String name){
         try {
-            System.out.println(name);
+            //System.out.println(name);
             TypeSpec helloWorld = TypeSpec.classBuilder(name)
                     .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                     .build();
@@ -76,8 +76,8 @@ public   class CreatModel {
             JavaFile javaFile = JavaFile.builder("com.rain.model", helloWorld)
                     .build();
 
-            javaFile.writeTo(System.out);
-        } catch (IOException e) {
+            //javaFile.writeTo(System.out);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

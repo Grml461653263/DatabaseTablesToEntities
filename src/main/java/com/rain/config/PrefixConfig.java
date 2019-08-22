@@ -1,6 +1,7 @@
 package com.rain.config;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -10,9 +11,10 @@ import org.springframework.context.annotation.Configuration;
  * Configuration table prefixes, which are filtered when entities are generated
  */
 @Configuration
-@ConfigurationProperties(prefix = "table")
+
 public class PrefixConfig {
 
+    @Value("${table.prefix}")
     private String prefix;
 
     public String getPre() {
@@ -24,6 +26,7 @@ public class PrefixConfig {
     }
 
     public Integer getPrefixLength(){
-        return prefix.equals("null")?prefix.length():0;
+       // System.err.println(prefix);
+        return "null".equals(prefix)?0:prefix.length();
     }
 }

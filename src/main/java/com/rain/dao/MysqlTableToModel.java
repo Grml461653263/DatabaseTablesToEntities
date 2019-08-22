@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.rain.uitls.JsonUtil.*;
 
@@ -47,8 +48,9 @@ public class MysqlTableToModel {
             logger.info("Database connection successful....");
 
             List<String> names = TableName.getTableName();
+            AtomicBoolean bl = new AtomicBoolean(true);
             names.forEach(name->{
-                boolean bl = true;
+
                 String sql = "desc "+ name;
                 List<Map<String, Object>> list = mysqlTemplate.queryForList(sql);
                 boolean dateFlag = true;
@@ -86,8 +88,8 @@ public class MysqlTableToModel {
                 }
                 sb1.append("\r\n}");
                 String model=sb.toString()+sb1.toString();
-                CreatModel.Creat(name,model,bl);
-                bl=false;
+                CreatModel.Creat(name,model, bl.get());
+                bl.set(false);
             });
 
 

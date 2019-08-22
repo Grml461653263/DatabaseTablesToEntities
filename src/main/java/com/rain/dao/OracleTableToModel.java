@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static com.rain.uitls.JsonUtil.*;
 
@@ -43,8 +44,9 @@ public class OracleTableToModel {
             logger.info("Database connection successful....");
 
             List<String> names = TableName.getTableName();
+            AtomicBoolean bl = new AtomicBoolean(true);
             names.forEach(name->{
-                boolean bl = true;
+
                 String  tableName =  name.toUpperCase();
                 String sql = "select * from user_tab_columns where Table_Name=\'"+ tableName+"\'";
                 logger.info(sql);
@@ -90,8 +92,8 @@ public class OracleTableToModel {
                 sb1.append("\r\n}");
                 String model=sb.toString()+sb1.toString();
 
-                CreatModel.Creat(name,model,bl);
-                bl=false;
+                CreatModel.Creat(name,model, bl.get());
+                bl.set(false);
             });
             logger.info("Database table transformation entity completion....");
 

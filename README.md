@@ -44,7 +44,9 @@ mysql/create  生成mysql表对应实体
 
 如：
 
-table.prefix = t   t为前缀  
+table.prefix = t           t为前缀  
+
+当表没有前缀的时候       前缀配置为      table.prefix = null
 
 
 

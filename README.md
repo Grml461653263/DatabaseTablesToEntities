@@ -40,6 +40,14 @@ mysql/create  生成mysql表对应实体
 
 实体生成的路径在src.main.java.com.rain.model这个目录下
 
+4.数据库表可配置前缀
+
+如：
+
+table.prefix = t           t为前缀  
+
+当表没有前缀的时候       前缀配置为      table.prefix = null
+
 
 
 

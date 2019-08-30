@@ -49,6 +49,11 @@ table.prefix = t           t为前缀
 当表没有前缀的时候       前缀配置为      table.prefix = null
 
 
+有的朋友maven没有oracle的依赖  在lib中有oracle的jar包 和手动安装命令  如有需要可以手动安装   
+
+
+有的已经maven已有了oracle依赖  请把pom中的依赖替换成 你的版本 
+
 
 
 

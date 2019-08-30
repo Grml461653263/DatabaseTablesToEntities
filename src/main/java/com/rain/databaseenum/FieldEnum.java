@@ -37,7 +37,7 @@ public enum FieldEnum {
 
     ORACLE_FIELD_LONG("LONG");
 
-    private String type;
+    private  String type;
 
 
     FieldEnum(String varchar) {

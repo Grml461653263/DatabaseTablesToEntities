@@ -28,7 +28,7 @@ public class MysqlTableToModel {
 
     Logger logger = LoggerFactory.getLogger(MysqlTableToModel.class);
 
-   
+
 
     @Autowired
     @Qualifier("mysqlJdbcTemplate")

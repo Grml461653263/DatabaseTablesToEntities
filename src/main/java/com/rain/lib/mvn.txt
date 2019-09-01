@@ -1,4 +1,6 @@
 由于oracle授权问题,Maven不提供oracle JDBC driver,为了在maven项目中应用oracle JDBC driver,必须手动添加到本地仓库
 例如ojdbc.jar在E:/software目录下
 进入E:/software目录执行一下命令:
-mvn install:install-file -DgroupId=com.chinapex -DartifactId=sso-helper -Dversion=0.0.1-SNAPSHOT -Dpackaging=jar -Dfile=sso-helper-0.0.1-SNAPSHOT.jar
+
+
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc8 -Dversion=12.2.0.1.0 -Dpackaging=jar -Dfile=ojdbc8.jar。
